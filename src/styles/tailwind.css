@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #000e37;
+}
+
+body {
+  @apply bg-navy;
+}
