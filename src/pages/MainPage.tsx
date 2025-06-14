@@ -1,6 +1,7 @@
-import MarketIndexChart from "@/MainPage/components/MarketIndexChart/MarketIndexChart";
-import { PortfolioDescription } from "@/MainPage/mocks/description";
+import MarketIndexChart from "@/_MainPage/components/MarketIndexChart/MarketIndexChart";
+import { PortfolioDescription } from "@/_MainPage/mocks/description";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Container =
   "grid grid-cols-[3fr_3fr_2fr] grid-rows-[2fr_3fr] gap-8 w-full p-9 pt-0";
@@ -56,8 +57,8 @@ const MainPage = () => {
               </>
             ))}
           </div>
-          <Button className="flex bg-white rounded-4xl w-60 h-18 font-suit text-navy text-xl cursor-pointer cu">
-            백테스팅 시작하기
+          <Button className="flex bg-white hover:opacity-70 rounded-4xl w-60 h-18 font-suit text-navy text-xl cursor-pointer cu">
+            <Link to={"backtesting"}>백테스팅 시작하기</Link>
           </Button>
         </div>
       </div>
