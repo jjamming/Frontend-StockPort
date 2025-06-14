@@ -7,6 +7,7 @@ import {
   FormControl,
   FormMessage,
 } from "@/components/ui/form";
+import { FormLabel } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { DatePicker } from "@/components/ui/datepicker";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -29,16 +30,11 @@ const BacktestForm = () => {
     },
   });
 
-  const watchedStartDate = form.watch("startDate");
-  console.log("현재 startDate 값:", watchedStartDate);
-  const watchedEndDate = form.watch("endDate");
-  console.log("현재 end", watchedEndDate);
-  const watchedMondy = form.watch("initialAmount");
-  console.log(watchedMondy);
   const onSubmit = (data: BacktestFormSchema) => {
     const mappedData = mapToBacktestRequest(data);
     console.log(mappedData);
   };
+
   return (
     <div className="flex flex-col py-10 border-white border-b">
       <Form {...form}>
@@ -103,8 +99,63 @@ const BacktestForm = () => {
           </div>
           <div className="flex mx-10">
             <div className="w-55 font-suit text-2xl">리밸런싱 주기</div>
-            <input></input>
+            <FormField
+              control={form.control}
+              name="rebalanceFrequency"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <RadioGroup
+                      onValueChange={field.onChange}
+                      value={field.value}
+                      className="flex gap-4"
+                    >
+                      <FormItem className="flex items-center space-x-1">
+                        <RadioGroupItem
+                          value="매월"
+                          id="monthly"
+                          className="data-[state=checked]:bg-white cursor-pointer"
+                        />
+                        <FormLabel htmlFor="monthly" className="cursor-pointer">
+                          매월
+                        </FormLabel>
+                      </FormItem>
+                      <FormItem className="flex items-center space-x-1">
+                        <RadioGroupItem
+                          value="분기별"
+                          id="quarterly"
+                          className="data-[state=checked]:bg-white cursor-pointer"
+                        />
+                        <FormLabel
+                          htmlFor="quarterly"
+                          className="cursor-pointer"
+                        >
+                          분기별
+                        </FormLabel>
+                      </FormItem>
+                      <FormItem className="flex items-center space-x-1">
+                        <RadioGroupItem
+                          value="매년"
+                          id="yearly"
+                          className="data-[state=checked]:bg-white cursor-pointer"
+                        />
+                        <FormLabel htmlFor="yearly" className="cursor-pointer">
+                          매년
+                        </FormLabel>
+                      </FormItem>
+                    </RadioGroup>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
           </div>
+          <Button
+            type="submit"
+            className="bg-white w-40 h-12 font-suit text-navy text-xl"
+          >
+            제출
+          </Button>
         </form>
       </Form>
     </div>
