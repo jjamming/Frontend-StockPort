@@ -13,7 +13,7 @@ const valueDiv = "font-suit text-4xl font-bold";
 const MarketIndexChart = ({ marketType }: MarketIndexChartProps) => {
   const data: MarketIndex = marketData[marketType];
   return (
-    <div className="flex gap-6 w-auto">
+    <div className="flex gap-6 mx-7 w-auto">
       <div className="flex flex-col justify-center items-start gap-1 mb-13">
         <div className={labelDiv}>{marketType}</div>
         <div className={valueDiv}>{data.value}</div>

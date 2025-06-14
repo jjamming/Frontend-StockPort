@@ -7,7 +7,7 @@ const Container =
 
 const MarketIndexChartWrapper =
   "flex relative items-center justify-center border-2 border-white rounded-xl h-full";
-const Divider = "h-50 border-l border-gray-300 mx-7";
+const Divider = "h-50 border-l border-gray-300 mx-4";
 const CardStyle =
   "border-2 border-white rounded-xl flex items-center justify-center p-4 w-full h-full";
 
