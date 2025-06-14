@@ -33,7 +33,8 @@ const BacktestForm = () => {
   console.log("현재 startDate 값:", watchedStartDate);
   const watchedEndDate = form.watch("endDate");
   console.log("현재 end", watchedEndDate);
-
+  const watchedMondy = form.watch("initialAmount");
+  console.log(watchedMondy);
   const onSubmit = (data: BacktestFormSchema) => {
     const mappedData = mapToBacktestRequest(data);
     console.log(mappedData);
@@ -77,7 +78,28 @@ const BacktestForm = () => {
           </div>
           <div className="flex mx-10">
             <div className="w-55 font-suit text-2xl">시작금</div>
-            <input></input>
+            <FormField
+              control={form.control}
+              name="initialAmount"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <div className="relative">
+                      <Input
+                        type="number"
+                        value={field.value}
+                        onChange={(e) => field.onChange(e.target.valueAsNumber)}
+                        className="bg-white pr-16 border-0 w-50 h-9.5 text-navy"
+                      />
+                      <div className="right-3 absolute inset-y-0 flex items-center font-pretendard text-gray-900">
+                        만원
+                      </div>
+                    </div>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
           </div>
           <div className="flex mx-10">
             <div className="w-55 font-suit text-2xl">리밸런싱 주기</div>
