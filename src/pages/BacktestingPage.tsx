@@ -1,5 +1,11 @@
+import Title from "@/_BacktestingPage/components/Title";
+
 const BacktestingPage = () => {
-  return <h1>BackTesting</h1>;
+  return (
+    <div className="px-18">
+      <Title></Title>
+    </div>
+  );
 };
 
 export default BacktestingPage;
