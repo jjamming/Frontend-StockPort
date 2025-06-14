@@ -18,24 +18,31 @@ interface DatePickerProps {
 }
 
 export function DatePicker({ field }: DatePickerProps) {
+  const [open, setOpen] = React.useState(false);
   return (
-    <Popover>
+    <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button
           variant="outline"
           data-empty={!field.value}
-          className="justify-start w-[280px] font-normal data-[empty=true]:text-muted-foreground text-left"
+          className="justify-start w-50 font-suit text-navy data-[empty=true]:text-muted-foreground text-left"
         >
           <CalendarIcon className="mr-2 w-4 h-4" />
-          {field.value ? format(field.value, "PPP") : <span>날짜 선택</span>}
+          {field.value ? (
+            format(field.value, "yyyy-MM-dd")
+          ) : (
+            <span>날짜 선택</span>
+          )}
         </Button>
       </PopoverTrigger>
       <PopoverContent className="p-0 w-auto">
         <Calendar
           mode="single"
           selected={field.value}
-          onSelect={(date) => field.onChange(date)}
-          initialFocus
+          onSelect={(date) => {
+            field.onChange(date);
+            setOpen(false);
+          }}
         />
       </PopoverContent>
     </Popover>
