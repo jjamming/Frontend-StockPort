@@ -7,8 +7,11 @@ type NavItemProps = {
 
 const NavItem = ({ to, label }: NavItemProps) => {
   return (
-    <div className="flex relative items-center justify-center">
-      <Link to={to} className="font-suit text-3xl font-bold leading-noraml">
+    <div className="relative flex justify-center items-center">
+      <Link
+        to={to}
+        className="opacity-60 hover:opacity-100 font-suit font-bold text-3xl leading-noraml"
+      >
         {label}
       </Link>
     </div>
