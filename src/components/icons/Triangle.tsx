@@ -12,7 +12,7 @@ const Triangle = ({ direction, size }: TriangleProps) => {
       : "M6.5 12L0.00480938 0.75H12.9952L6.5 12Z";
   const color = direction === "up" ? "#fb2c36" : "#155dfc";
   return (
-    <div className="relative flex justify-end items-end mr-1 mb-1.25 ml-2">
+    <div className="relative flex justify-end items-end mr-1 mb-1.25 ml-1">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width={size}
