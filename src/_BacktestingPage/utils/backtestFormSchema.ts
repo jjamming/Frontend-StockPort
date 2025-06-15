@@ -11,8 +11,8 @@ export const backtestFormSchema = z
       message: "종료일은 오늘 이전이어야 합니다.",
     }),
     initialAmount: z
-      .number()
-      .min(1, { message: "1원 이상 입력하세요." })
+      .number({ message: "숫자를 입력해주세요." })
+      .min(1, { message: "1만원 이상 입력해주세요." })
       .max(100000000, { message: "최대 1조까지 가능합니다." }),
     rebalanceFrequency: z.enum(["매년", "분기별", "매월"]),
   })
