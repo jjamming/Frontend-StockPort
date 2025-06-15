@@ -1,11 +1,12 @@
-import { useState } from "react";
+import type { Asset } from "../types/backtestFormType";
 import AssetItem from "./AssetItem";
-
-const AssetAllocation = () => {
-  const [assets, setAssets] = useState([{}]);
-
+type AssetAllocationProps = {
+  assets: Asset[];
+  setAssets: React.Dispatch<React.SetStateAction<Asset[]>>;
+};
+const AssetAllocation = ({ assets, setAssets }: AssetAllocationProps) => {
   const handleAddAsset = () => {
-    setAssets([...assets, {}]);
+    setAssets([...assets, { name: "", ticker: "", weight: 0 }]);
   };
   const handleDeleteAsset = (index: number) => {
     if (assets.length === 1) {
