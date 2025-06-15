@@ -150,12 +150,12 @@ const BacktestForm = () => {
               )}
             />
           </div>
-          <Button
+          {/* <Button
             type="submit"
             className="bg-white w-40 h-12 font-suit text-navy text-xl"
           >
             제출
-          </Button>
+          </Button> */}
         </form>
       </Form>
     </div>
