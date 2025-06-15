@@ -1,6 +1,7 @@
 import Title from "@/_BacktestingPage/components/Title";
 import Notice from "@/_BacktestingPage/components/Notice";
 import BacktestForm from "@/_BacktestingPage/components/BacktestForm";
+import AssetAllocation from "@/_BacktestingPage/components/AssetAllocation";
 
 const BacktestingPage = () => {
   return (
@@ -8,6 +9,7 @@ const BacktestingPage = () => {
       <Title></Title>
       <Notice></Notice>
       <BacktestForm></BacktestForm>
+      <AssetAllocation></AssetAllocation>
     </div>
   );
 };
