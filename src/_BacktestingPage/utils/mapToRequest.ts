@@ -6,9 +6,11 @@ import type { BacktestFormValues } from "../types/backtestFormType";
 export function mapToBacktestRequest(
   values: BacktestFormSchema,
 ): BacktestFormValues {
+  const formatDate = (date: Date) => date.toLocaleDateString("sv-SE");
+
   return {
-    start_date: values.startDate.toISOString().slice(0, 10),
-    end_date: values.endDate.toISOString().slice(0, 10),
+    start_date: formatDate(values.startDate),
+    end_date: formatDate(values.endDate),
     initial_amount: values.initialAmount,
     rebalance_frequency: values.rebalanceFrequency,
   };
