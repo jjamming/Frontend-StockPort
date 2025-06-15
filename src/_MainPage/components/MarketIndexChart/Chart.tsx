@@ -1,4 +1,4 @@
-import type { ChartDataPoint } from "@/MainPage/types/MarketIndexType";
+import type { ChartDataPoint } from "@/_MainPage/types/MarketIndexType";
 import {
   LineChart,
   Line,
