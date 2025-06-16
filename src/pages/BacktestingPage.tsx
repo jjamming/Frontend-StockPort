@@ -10,6 +10,7 @@ import {
 } from "@/_BacktestingPage/utils/backtestFormSchema";
 import { useState } from "react";
 import { mapToBacktestRequest } from "@/_BacktestingPage/utils/mapToRequest";
+import { v4 as uuidv4 } from "uuid";
 
 const BacktestingPage = () => {
   const form = useForm<BacktestFormSchema>({
@@ -21,7 +22,9 @@ const BacktestingPage = () => {
       rebalanceFrequency: "매년",
     },
   });
-  const [assets, setAssets] = useState([{ name: "", ticker: "", weight: 0 }]);
+  const [assets, setAssets] = useState([
+    { id: uuidv4(), name: "", ticker: "", weight: 0 },
+  ]);
   const handleSubmit = () => {
     console.log("cliked");
     const formData = form.getValues();

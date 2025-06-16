@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import type { SearchResult, Asset } from "../types/backtestFormType";
-import { searchAsset } from "../apis/searchAsset";
 import { debounce } from "lodash";
 
 type AssetItemProps = {
@@ -9,9 +8,16 @@ type AssetItemProps = {
   onUpdate: (updatedAsset: Asset) => void;
   onDelete: () => void;
 };
+
 const mockSearchAsset = async (query: string): Promise<SearchResult[]> => {
   if (!query) return [];
-  return [{ name: "삼성전자", ticker: "000000" }];
+  return [
+    { name: "삼성전자", ticker: "005930" },
+    { name: "삼성물산", ticker: "028260" },
+    { name: "삼성SDI", ticker: "006400" },
+    { name: "삼성바이오로직스", ticker: "207940" },
+    { name: "삼성에스디에스", ticker: "018260" },
+  ];
 };
 
 const AssetItem = ({
@@ -59,7 +65,7 @@ const AssetItem = ({
 
       {/* 드롭다운 */}
       {searchResults.length > 0 && (
-        <div className="top-full left-55 z-20 absolute flex items-center bg-white hover:bg-gray-300 mt-2 border rounded w-60 h-10 text-navy">
+        <div className="top-full left-55 z-20 absolute flex flex-col items-center bg-white hover:bg-gray-300 mt-2 border rounded w-60 h-auto text-navy">
           {searchResults.map((item) => (
             <div
               key={item.ticker}
