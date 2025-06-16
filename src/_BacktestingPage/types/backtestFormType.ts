@@ -14,3 +14,8 @@ export type Asset = {
 export type BacktestRequest = BacktestFormValues & {
   assets: Asset[];
 };
+
+export type SearchResult = {
+  ticker: string;
+  name: string;
+};

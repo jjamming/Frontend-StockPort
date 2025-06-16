@@ -1,47 +1,26 @@
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
   FormField,
   FormItem,
   FormControl,
   FormMessage,
+  FormLabel,
 } from "@/components/ui/form";
-import { FormLabel } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { DatePicker } from "@/components/ui/datepicker";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Button } from "@/components/ui/button";
+import type { UseFormReturn } from "react-hook-form";
+import type { BacktestFormSchema } from "../utils/backtestFormSchema";
 
-import {
-  backtestFormSchema,
-  type BacktestFormSchema,
-} from "../utils/backtestFormSchema";
-import { mapToBacktestRequest } from "../utils/mapToRequest";
+type BacktestFormProps = {
+  form: UseFormReturn<BacktestFormSchema>;
+};
 
-const BacktestForm = () => {
-  const form = useForm<BacktestFormSchema>({
-    resolver: zodResolver(backtestFormSchema),
-    defaultValues: {
-      startDate: new Date(),
-      endDate: new Date(),
-      initialAmount: 1000,
-      rebalanceFrequency: "매년",
-    },
-  });
-
-  const onSubmit = (data: BacktestFormSchema) => {
-    const mappedData = mapToBacktestRequest(data);
-    console.log(mappedData);
-  };
-
+const BacktestForm = ({ form }: BacktestFormProps) => {
   return (
     <div className="flex flex-col py-10 border-white border-b">
       <Form {...form}>
-        <form
-          className="flex flex-col gap-13"
-          onSubmit={form.handleSubmit(onSubmit)}
-        >
+        <form className="flex flex-col gap-13">
           <div className="flex mx-10">
             <div className="w-55 font-suit text-2xl">시작일</div>
             <FormField
@@ -150,12 +129,12 @@ const BacktestForm = () => {
               )}
             />
           </div>
-          <Button
+          {/* <Button
             type="submit"
             className="bg-white w-40 h-12 font-suit text-navy text-xl"
           >
             제출
-          </Button>
+          </Button> */}
         </form>
       </Form>
     </div>
