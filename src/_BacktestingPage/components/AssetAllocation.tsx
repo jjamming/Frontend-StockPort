@@ -5,12 +5,16 @@ import WeightSummary from "./WeightSummary";
 type AssetAllocationProps = {
   assets: Asset[];
   setAssets: React.Dispatch<React.SetStateAction<Asset[]>>;
+  totalWeight: number;
 };
-const AssetAllocation = ({ assets, setAssets }: AssetAllocationProps) => {
+const AssetAllocation = ({
+  assets,
+  setAssets,
+  totalWeight,
+}: AssetAllocationProps) => {
   const handleAddAsset = () => {
     setAssets([...assets, { id: uuidv4(), name: "", ticker: "", weight: 0 }]);
   };
-  const totalWeight = assets.reduce((sum, asset) => sum + asset.weight, 0);
   const handleUpdateAsset = (updatedAsset: Asset) => {
     setAssets((prevAssets) =>
       prevAssets.map((asset) =>

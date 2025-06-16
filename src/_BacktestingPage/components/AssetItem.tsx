@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import type { SearchResult, Asset } from "../types/backtestFormType";
 import { debounce } from "lodash";
-
+import { searchAsset } from "../apis/searchAsset";
 type AssetItemProps = {
   AssetIndex: number;
   asset: Asset;
@@ -31,13 +31,13 @@ const AssetItem = ({
   const [query, setQuery] = useState(asset.name);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const skipSearchRef = useRef(false);
-  const hasClearedRef = useRef(false); // 🔥 추가
+  const hasClearedRef = useRef(false);
 
   const handleSearch = debounce(async (keyword: string) => {
     const results = await mockSearchAsset(keyword);
     setSearchResults(results);
     setIsDropdownOpen(true);
-  }, 300);
+  }, 500);
 
   useEffect(() => {
     if (skipSearchRef.current) {
@@ -59,7 +59,7 @@ const AssetItem = ({
     setQuery(displayValue);
     setSearchResults([]);
     setIsDropdownOpen(false);
-    hasClearedRef.current = false; // 선택 후 다시 초기화 가능하게 초기화
+    hasClearedRef.current = false;
   };
 
   useEffect(() => {
@@ -124,7 +124,6 @@ const AssetItem = ({
           onUpdate({ ...asset, weight: newWeight });
         }}
         placeholder="비중(%)"
-        onWheel={(e) => e.preventDefault()}
       />
       {AssetIndex !== 0 ? (
         <button
