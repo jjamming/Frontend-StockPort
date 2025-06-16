@@ -103,11 +103,11 @@ const AssetItem = ({
       />
 
       {isDropdownOpen && searchResults.length > 0 && (
-        <div className="top-full left-55 z-20 absolute flex flex-col items-center bg-white mt-2 border rounded w-60 h-auto text-navy cursor-pointer">
+        <div className="top-full left-55 z-20 absolute flex flex-col items-center bg-navy mt-2 border rounded w-60 h-auto text-[#E0E6ED] cursor-pointer">
           {searchResults.map((item) => (
             <div
               key={item.ticker}
-              className="px-2 py-1"
+              className="flex hover:bg-[#182c4d] px-2 py-1 w-full"
               onClick={() => handleSelect(item)}
             >
               {item.name} ({item.ticker})
