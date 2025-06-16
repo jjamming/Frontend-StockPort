@@ -115,7 +115,17 @@ const AssetItem = ({
           ))}
         </div>
       )}
-
+      <input
+        type="number"
+        className="relative flex ml-4 px-2 py-1 border rounded w-24 h-11"
+        value={asset.weight === 0 ? "" : asset.weight}
+        onChange={(e) => {
+          const newWeight = Math.max(0, Math.min(100, Number(e.target.value)));
+          onUpdate({ ...asset, weight: newWeight });
+        }}
+        placeholder="비중(%)"
+        onWheel={(e) => e.preventDefault()}
+      />
       {AssetIndex !== 0 ? (
         <button
           className="flex justify-center items-center hover:bg-blue-950 px-4 py-1 rounded-3xl font-suit text-l text-white"

@@ -1,6 +1,7 @@
 import type { Asset } from "../types/backtestFormType";
 import AssetItem from "./AssetItem";
 import { v4 as uuidv4 } from "uuid";
+import WeightSummary from "./WeightSummary";
 type AssetAllocationProps = {
   assets: Asset[];
   setAssets: React.Dispatch<React.SetStateAction<Asset[]>>;
@@ -9,7 +10,7 @@ const AssetAllocation = ({ assets, setAssets }: AssetAllocationProps) => {
   const handleAddAsset = () => {
     setAssets([...assets, { id: uuidv4(), name: "", ticker: "", weight: 0 }]);
   };
-
+  const totalWeight = assets.reduce((sum, asset) => sum + asset.weight, 0);
   const handleUpdateAsset = (updatedAsset: Asset) => {
     setAssets((prevAssets) =>
       prevAssets.map((asset) =>
@@ -47,6 +48,7 @@ const AssetAllocation = ({ assets, setAssets }: AssetAllocationProps) => {
       >
         + 추가
       </button>
+      <WeightSummary totalWeight={totalWeight}></WeightSummary>
     </div>
   );
 };
