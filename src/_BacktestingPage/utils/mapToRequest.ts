@@ -13,6 +13,10 @@ export function mapToBacktestRequest(
     end_date: formatDate(values.endDate),
     initial_amount: values.initialAmount,
     rebalance_frequency: values.rebalanceFrequency,
-    assets: assets,
+    assets: assets.map(({ id, name, ticker, weight }) => ({
+      name,
+      ticker,
+      weight,
+    })),
   };
 }
