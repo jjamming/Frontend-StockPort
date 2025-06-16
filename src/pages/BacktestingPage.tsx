@@ -31,6 +31,7 @@ const BacktestingPage = () => {
     const requestData = mapToBacktestRequest(formData, assets);
     console.log(requestData);
   };
+
   return (
     <div className="gap-2 px-18">
       <Title></Title>

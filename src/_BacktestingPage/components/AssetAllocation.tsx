@@ -1,15 +1,11 @@
 import type { Asset } from "../types/backtestFormType";
 import AssetItem from "./AssetItem";
 import { v4 as uuidv4 } from "uuid";
-import { useEffect } from "react";
 type AssetAllocationProps = {
   assets: Asset[];
   setAssets: React.Dispatch<React.SetStateAction<Asset[]>>;
 };
 const AssetAllocation = ({ assets, setAssets }: AssetAllocationProps) => {
-  useEffect(() => {
-    console.log(assets);
-  }, [assets]);
   const handleAddAsset = () => {
     setAssets([...assets, { id: uuidv4(), name: "", ticker: "", weight: 0 }]);
   };

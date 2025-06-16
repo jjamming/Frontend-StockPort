@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import type { SearchResult, Asset } from "../types/backtestFormType";
 import { debounce } from "lodash";
 
@@ -26,32 +26,59 @@ const AssetItem = ({
   onUpdate,
   onDelete,
 }: AssetItemProps) => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [query, setQuery] = useState(asset.name);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const skipSearchRef = useRef(false);
+  const hasClearedRef = useRef(false); // 🔥 추가
 
   const handleSearch = debounce(async (keyword: string) => {
     const results = await mockSearchAsset(keyword);
     setSearchResults(results);
+    setIsDropdownOpen(true);
   }, 300);
+
   useEffect(() => {
+    if (skipSearchRef.current) {
+      skipSearchRef.current = false;
+      return;
+    }
     if (query) {
       handleSearch(query);
     } else {
       setSearchResults([]);
+      setIsDropdownOpen(false);
     }
   }, [query]);
 
   const handleSelect = (selected: SearchResult) => {
-    onUpdate({
-      ...asset,
-      name: selected.name,
-      ticker: selected.ticker,
-    });
-    setQuery(selected.name);
+    const displayValue = `${selected.name} (${selected.ticker})`;
+    onUpdate({ ...asset, name: selected.name, ticker: selected.ticker });
+    skipSearchRef.current = true;
+    setQuery(displayValue);
     setSearchResults([]);
+    setIsDropdownOpen(false);
+    hasClearedRef.current = false; // 선택 후 다시 초기화 가능하게 초기화
   };
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        wrapperRef.current &&
+        !wrapperRef.current.contains(e.target as Node)
+      ) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="relative flex mx-10">
+    <div ref={wrapperRef} className="relative flex mx-10">
       <div className="relative flex items-center w-55 font-suit text-2xl">
         자산 {AssetIndex + 1}
       </div>
@@ -59,17 +86,28 @@ const AssetItem = ({
       <input
         className="relative flex px-2 py-1 border rounded w-60 h-11"
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={(e) => {
+          setQuery(e.target.value);
+          hasClearedRef.current = true; // 입력 중엔 다시 초기화 안되게
+        }}
         placeholder="종목명 입력"
+        onFocus={() => {
+          if (!hasClearedRef.current && query.includes("(")) {
+            setQuery("");
+            setIsDropdownOpen(true);
+            hasClearedRef.current = true;
+          } else {
+            if (searchResults.length > 0) setIsDropdownOpen(true);
+          }
+        }}
       />
 
-      {/* 드롭다운 */}
-      {searchResults.length > 0 && (
-        <div className="top-full left-55 z-20 absolute flex flex-col items-center bg-white hover:bg-gray-300 mt-2 border rounded w-60 h-auto text-navy">
+      {isDropdownOpen && searchResults.length > 0 && (
+        <div className="top-full left-55 z-20 absolute flex flex-col items-center bg-white mt-2 border rounded w-60 h-auto text-navy cursor-pointer">
           {searchResults.map((item) => (
             <div
               key={item.ticker}
-              className="px-2 py-1 cursor-pointer"
+              className="px-2 py-1"
               onClick={() => handleSelect(item)}
             >
               {item.name} ({item.ticker})
@@ -85,7 +123,7 @@ const AssetItem = ({
         >
           X
         </button>
-      ) : undefined}
+      ) : null}
     </div>
   );
 };
