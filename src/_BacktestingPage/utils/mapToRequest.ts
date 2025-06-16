@@ -1,11 +1,11 @@
-// 백엔드측 전송 양식을 맞추기 위해 formDataSchema -> formDataValues 변한
-
+// 백엔드측 전송 양식을 맞추기 위해 formDataSchema -> BacktestRequest변한
 import type { BacktestFormSchema } from "./backtestFormSchema";
-import type { BacktestFormValues } from "../types/backtestFormType";
+import type { Asset, BacktestRequest } from "../types/backtestFormType";
 
 export function mapToBacktestRequest(
   values: BacktestFormSchema,
-): BacktestFormValues {
+  assets: Asset[],
+): BacktestRequest {
   const formatDate = (date: Date) => date.toLocaleDateString("sv-SE");
 
   return {
@@ -13,5 +13,6 @@ export function mapToBacktestRequest(
     end_date: formatDate(values.endDate),
     initial_amount: values.initialAmount,
     rebalance_frequency: values.rebalanceFrequency,
+    assets: assets,
   };
 }
