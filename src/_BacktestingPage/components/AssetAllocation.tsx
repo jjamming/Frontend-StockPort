@@ -25,6 +25,8 @@ const AssetAllocation = ({ assets, setAssets }: AssetAllocationProps) => {
         {assets.map((_, index) => (
           <AssetItem
             key={index}
+            asset={assets[index]}
+            onUpdate={handleAddAsset}
             AssetIndex={index}
             onDelete={() => handleDeleteAsset(index)}
           />
