@@ -3,7 +3,8 @@ import type { MarketIndexData } from "../types/MarketIndexType";
 export const marketData: MarketIndexData = {
   KOSPI: {
     value: 2716.26,
-    volatility: "3.18 (+0.12%)",
+    change: 3.18,
+    changePercent: 0.12,
     direction: "up",
     chartData: [
       { date: "2025-06-06", value: 2703 },
@@ -15,7 +16,8 @@ export const marketData: MarketIndexData = {
   },
   KOSDAQ: {
     value: 868.43,
-    volatility: "1.12 (-0.18%)",
+    change: 1.12,
+    changePercent: 0.18,
     direction: "down",
     chartData: [
       { date: "2025-06-06", value: 872 },
