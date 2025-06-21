@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { HERO_CONTENT } from "../mocks/heroContent";
 import React from "react";
+import { Link } from "react-router-dom";
+
 export default function HeroSection() {
   return (
     <div className="flex flex-col justify-center items-center py-20 sm:py-32 text-center">
@@ -22,11 +24,14 @@ export default function HeroSection() {
         ))}
       </p>
       <Button
+        asChild
         size="lg"
         className="bg-blue-500 hover:bg-blue-600 mt-10 px-9 py-6 rounded-full text-[1rem] text-white"
       >
-        {HERO_CONTENT.cta}
-        <ArrowRight className="ml-1 w-5 h-5" />
+        <Link to="/backtest">
+          {HERO_CONTENT.cta}
+          <ArrowRight className="ml-1 w-5 h-5" />
+        </Link>
       </Button>
     </div>
   );

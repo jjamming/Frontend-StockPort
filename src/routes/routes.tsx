@@ -18,7 +18,7 @@ export const routes: RouteObject[] = [
       { path: "markets", element: <MarketsPage /> },
       { path: "community", element: <CommunityPage /> },
       { path: "portfolio", element: <PortfolioPage /> },
-      { path: "backtesting", element: <BacktestingPage /> },
+      { path: "backtest", element: <BacktestingPage /> },
       { path: "login", element: <LoginPage /> },
     ],
   },
