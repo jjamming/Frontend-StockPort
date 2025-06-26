@@ -22,7 +22,7 @@ const LoginPage = () => {
         <div className="text-center">
           <Logo />
           <p className="font-pretendard text-1xl text-gray-300">
-            로그인하고 당신의 투자 전략을 검증해보세요
+            로그인 후, 투자 전략을 직접 검증해볼 수 있어요.
           </p>
         </div>
 
