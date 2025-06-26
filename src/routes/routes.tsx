@@ -7,12 +7,12 @@ import {
   PortfolioPage,
   BacktestingPage,
   LoginPage,
-  SignupPage,
+  SignUpPage,
 } from "../pages";
 
 export const routes: RouteObject[] = [
   { path: "/login", element: <LoginPage /> },
-  { path: "/signup", element: <SignupPage /> },
+  { path: "/signup", element: <SignUpPage /> },
   {
     path: "/",
     element: <Layout />,
