@@ -7,9 +7,12 @@ import {
   PortfolioPage,
   BacktestingPage,
   LoginPage,
+  SignUpPage,
 } from "../pages";
 
 export const routes: RouteObject[] = [
+  { path: "/login", element: <LoginPage /> },
+  { path: "/signup", element: <SignUpPage /> },
   {
     path: "/",
     element: <Layout />,
@@ -19,7 +22,6 @@ export const routes: RouteObject[] = [
       { path: "community", element: <CommunityPage /> },
       { path: "portfolio", element: <PortfolioPage /> },
       { path: "backtest", element: <BacktestingPage /> },
-      { path: "login", element: <LoginPage /> },
     ],
   },
 ];
