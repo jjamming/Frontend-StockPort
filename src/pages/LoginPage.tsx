@@ -31,7 +31,7 @@ const LoginPage = () => {
           <button
             type="button"
             onClick={handleGoogleLogin}
-            className="flex items-center bg-white hover:bg-gray-100 shadow-md px-4 py-4 rounded-lg w-full text-[1.1rem] text-gray-800 transition-colors duration-300"
+            className="flex items-center bg-white shadow-md hover:brightness-90 px-4 py-4 rounded-lg w-full text-[1.1rem] text-gray-800 transition-colors duration-300 cursor-pointer"
           >
             <span className="flex-shrink-0 mr-3">
               <GoogleIcon />
@@ -43,7 +43,7 @@ const LoginPage = () => {
             <img
               src="/images/kakao_login_large_wide.png"
               alt="카카오로 로그인"
-              className="shadow-md hover:brightness-95 rounded-lg w-full transition"
+              className="shadow-md hover:brightness-90 rounded-lg w-full transition"
             />
           </div>
         </div>

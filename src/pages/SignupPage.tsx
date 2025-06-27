@@ -31,7 +31,7 @@ const SignUpPage = () => {
           <button
             type="button"
             onClick={handleGoogleSignUp}
-            className="flex items-center bg-white hover:bg-gray-100 shadow-md px-4 py-4 rounded-lg w-full text-[1.1rem] text-gray-800 transition-colors duration-300"
+            className="flex items-center bg-white shadow-md hover:brightness-90 px-4 py-4 rounded-lg w-full text-[1.1rem] text-gray-800 transition-colors duration-300 cursor-pointer"
           >
             <span className="flex-shrink-0 mr-3">
               <GoogleIcon />
@@ -40,13 +40,10 @@ const SignUpPage = () => {
           </button>
 
           <div onClick={handleKakaoSignUp} className="w-full cursor-pointer">
-            {/* 참고: 카카오 로그인 버튼 이미지를 그대로 사용. 
-                텍스트가 '로그인'으로 고정되어 있으나, 클릭 시 회원가입 로직으로 연결합니다.
-                '카카오로 시작하기' 등의 커스텀 버튼을 직접 디자인하여 교체할 수도 있습니다. */}
             <img
               src="/images/kakao_login_large_wide.png"
               alt="카카오로 시작하기"
-              className="shadow-md hover:brightness-95 rounded-lg w-full transition"
+              className="shadow-md hover:brightness-90 rounded-lg w-full transition"
             />
           </div>
         </div>
