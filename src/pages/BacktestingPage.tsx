@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import Title from "@/_BacktestingPage/components/Title";
+import Title from "@/components/Title";
 import Notice from "@/_BacktestingPage/components/Notice";
 import BacktestForm from "@/_BacktestingPage/components/BacktestForm";
 import AssetAllocation from "@/_BacktestingPage/components/AssetAllocation";
@@ -71,7 +71,7 @@ ${requestData.assets
 
   return (
     <div className="gap-2 px-18">
-      <Title></Title>
+      <Title title="자산배분 백테스트"></Title>
       <Notice></Notice>
       <BacktestForm form={form}></BacktestForm>
       <AssetAllocation
