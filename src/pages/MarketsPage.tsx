@@ -5,8 +5,6 @@ import type { MarketItem } from "../_MarketsPage/types/marketItem";
 import Pagination from "../components/Pagination";
 import Title from "../components/Title";
 
-// API로부터 받아올 가상 데이터 (충분한 양의 데이터 권장)
-
 const ITEMS_PER_PAGE = 10;
 const CATEGORIES = ["거래대금", "거래량", "급상승", "급하락", "인기"];
 
