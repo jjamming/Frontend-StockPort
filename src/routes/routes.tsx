@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout";
 import {
   MainPage,
   MarketsPage,
+  MarketDetailPage,
   CommunityPage,
   PortfolioPage,
   BacktestingPage,
@@ -19,6 +20,7 @@ export const routes: RouteObject[] = [
     children: [
       { path: "", element: <MainPage /> },
       { path: "markets", element: <MarketsPage /> },
+      { path: "markets/:code", element: <MarketDetailPage /> },
       { path: "community", element: <CommunityPage /> },
       { path: "portfolio", element: <PortfolioPage /> },
       { path: "backtest", element: <BacktestingPage /> },
