@@ -1,5 +1,6 @@
 import React from "react";
 import type { MarketItem } from "../types/marketItem";
+import { useNavigate } from "react-router-dom";
 
 interface MarketListProps {
   items: MarketItem[];
@@ -18,8 +19,8 @@ const MarketList: React.FC<MarketListProps> = ({
   currentPage,
   itemsPerPage,
 }) => {
+  const navigate = useNavigate();
   const startIndex = (currentPage - 1) * itemsPerPage;
-
   return (
     <table className="w-full text-white border-collapse">
       <thead>
@@ -45,7 +46,11 @@ const MarketList: React.FC<MarketListProps> = ({
         {items.map((item, index) => {
           const { className, icon } = getChangeInfo(item.changeRate);
           return (
-            <tr key={item.id} className="border-white/10 border-b">
+            <tr
+              key={item.id}
+              className="hover:bg-white/5 border-white/10 border-b cursor-pointer"
+              onClick={() => navigate(`/markets/${item.code}`)}
+            >
               {/* 순번 */}
               <td className="p-4 text-gray-400 align-middle">
                 {startIndex + index + 1}
