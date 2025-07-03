@@ -2,6 +2,7 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MessageSquare, ThumbsUp, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 // API로 받아올 게시물 데이터의 타입 정의
 type Post = {
@@ -73,9 +74,11 @@ export default function HotPostsSection() {
           <CardTitle className="font-bold text-2xl">
             실시간 인기 게시물
           </CardTitle>
-          <Button variant="ghost" className="text-gray-300 hover:text-white">
-            더보기 <ArrowRight className="ml-2 w-4 h-4" />
-          </Button>
+          <Link to="/community">
+            <Button className="bg-parent hover:bg-[#000E37] text-gray-300 cursor-pointer">
+              더보기 <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+          </Link>
         </CardHeader>
         <CardContent>
           <ul className="space-y-4">
