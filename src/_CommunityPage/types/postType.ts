@@ -1,11 +1,10 @@
-// 게시물 데이터 타입
+// 게시글 데이터 타입
 export type Post = {
   id: number;
-  rank: number;
+  category: "자유" | "질문" | "정보 공유";
   title: string;
-  stockName?: string; // 연관된 종목명 (선택적)
   author: string;
-  ago: string;
-  comments: number;
+  createdAt: string;
+  views: number;
   likes: number;
 };
