@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import type { StockData } from "../_MarketDetailPage/types/StockDataType";
+import type { StockData } from "../_MarketDetailPage/types/stockDataType";
 import DetailItem from "@/_MarketDetailPage/components/DetailItem";
 import { sampleData } from "../_MarketDetailPage/datas/stockSample";
 const MarketDetailPage: React.FC = () => {
