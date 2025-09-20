@@ -1,8 +1,7 @@
-import React from "react";
-import type { Post } from "../types/postType";
+import type { PostType } from "../types/postType";
 
 interface PostListProps {
-  posts: Post[];
+  posts: PostType[];
 }
 
 const formatDate = (dateString: string) => {
@@ -13,7 +12,7 @@ const formatDate = (dateString: string) => {
   return `${year}/${month}/${day}`;
 };
 
-const PostList: React.FC<PostListProps> = ({ posts }) => {
+const PostList = ({ posts }: PostListProps) => {
   return (
     <table className="w-full text-white border-collapse">
       <thead>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import MarketList from "../_MarketsPage/components/MarketList";
 import { MOCK_DATA } from "../_MarketsPage/datas/MarketMockData";
 import type { MarketItem } from "../_MarketsPage/types/marketItem";
@@ -8,7 +8,7 @@ import Title from "../components/Title";
 const ITEMS_PER_PAGE = 10;
 const CATEGORIES = ["거래대금", "거래량", "급상승", "급하락", "인기"];
 
-const MarketsPage: React.FC = () => {
+const MarketsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [marketData, setMarketData] = useState<MarketItem[]>([]);
   const [activeCategory, setActiveCategory] = useState("거래대금");

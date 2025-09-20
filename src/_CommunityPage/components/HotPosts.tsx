@@ -1,4 +1,3 @@
-import React from "react";
 import { ThumbsUp } from "lucide-react";
 import type { Post } from "../types/postType";
 
@@ -6,7 +5,7 @@ interface HotPostsProps {
   posts: Post[];
 }
 
-const HotPosts: React.FC<HotPostsProps> = ({ posts }) => {
+const HotPosts = ({ posts }: HotPostsProps) => {
   // 추천수가 높은 순으로 정렬하여 상위 6개만 선택
   const popularPosts = [...posts].sort((a, b) => b.likes - a.likes).slice(0, 6);
 

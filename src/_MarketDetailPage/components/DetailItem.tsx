@@ -6,11 +6,7 @@ interface DetailItemProps {
   className?: string;
 }
 
-const DetailItem: React.FC<DetailItemProps> = ({
-  label,
-  value,
-  className = "",
-}) => (
+const DetailItem = ({ label, value, className = "" }: DetailItemProps) => (
   <div className="flex justify-between items-center hover:bg-white/10 p-2 rounded-md text-sm transition-colors duration-200">
     <dt className="text-[1.2rem] text-gray-400">{label}</dt>
     <dd className={`text-[1.2rem] font-semibold ${className}`}>{value}</dd>

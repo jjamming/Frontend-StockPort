@@ -1,6 +1,7 @@
 // src/pages/CommunityPage.tsx
-import React, { useState, useEffect, useMemo } from "react";
-import PostList, { type Post } from "../_CommunityPage/components/PostList";
+import { useState, useEffect, useMemo } from "react";
+import PostList from "../_CommunityPage/components/PostList";
+import type { PostType } from "../_CommunityPage/types/postType";
 import HotPosts from "../_CommunityPage/components/HotPosts";
 import Pagination from "../components/Pagination";
 import Title from "../components/Title";
@@ -9,9 +10,9 @@ import { MOCK_POSTS } from "../_CommunityPage/datas/mockPosts";
 const ITEMS_PER_PAGE = 10;
 const CATEGORIES = ["자유", "질문", "정보 공유"];
 
-const CommunityPage: React.FC = () => {
+const CommunityPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [posts, setPosts] = useState<Post[]>([]);
+  const [posts, setPosts] = useState<PostType[]>([]);
   const [activeCategory, setActiveCategory] = useState("자유");
 
   useEffect(() => {

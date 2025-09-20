@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import type { StockData } from "../_MarketDetailPage/types/stockDataType";
 import DetailItem from "@/_MarketDetailPage/components/DetailItem";
 import { sampleData } from "../_MarketDetailPage/datas/stockSample";
-const MarketDetailPage: React.FC = () => {
+const MarketDetailPage = () => {
   const [stockData, setStockData] = useState<StockData | null>(null);
 
   // 데이터 로딩 (실제로는 API 호출)

@@ -1,6 +1,6 @@
-import type { Post } from "../types/postType";
+import type { PostType } from "../types/postType";
 
-export const MOCK_POSTS: Post[] = [
+export const MOCK_POSTS: PostType[] = [
   {
     id: 1,
     category: "자유",
