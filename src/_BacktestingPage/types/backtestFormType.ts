@@ -6,11 +6,23 @@ export type BacktestFormValues = {
 };
 
 export type Asset = {
+  id: string;
   ticker: string;
   name: string;
   weight: number;
 };
 
+export type AssetRequest = {
+  name: string;
+  ticker: string;
+  weight: number;
+};
+
 export type BacktestRequest = BacktestFormValues & {
-  assets: Asset[];
+  assets: AssetRequest[];
+};
+
+export type SearchResult = {
+  ticker: string;
+  name: string;
 };

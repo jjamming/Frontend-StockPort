@@ -4,7 +4,8 @@ export type ChartDataPoint = { date: string; value: number };
 
 export type MarketIndex = {
   value: number;
-  volatility: string;
+  change: number;
+  changePercent: number;
   direction: "up" | "down";
   chartData: ChartDataPoint[];
 };
