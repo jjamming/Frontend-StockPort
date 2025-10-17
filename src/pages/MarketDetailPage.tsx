@@ -31,13 +31,9 @@ const MarketDetailPage = () => {
     );
   }
   const highPriceColor =
-    stockData.highPrice > stockData.prevClosePrice
-      ? "text-red-500"
-      : "text-white";
+    stockData.highPrice > stockData.prevClosePrice ? "text-red-500" : "text-white";
   const lowPriceColor =
-    stockData.lowPrice < stockData.prevClosePrice
-      ? "text-blue-500"
-      : "text-white";
+    stockData.lowPrice < stockData.prevClosePrice ? "text-blue-500" : "text-white";
 
   return (
     <div className="bg-navy-dark mx-10 p-8 md:p-8 min-h-screen font-sans text-white">
@@ -56,9 +52,7 @@ const MarketDetailPage = () => {
           <div className={`text-5xl font-bold ${changeInfo.color}`}>
             {stockData.currentPrice.toLocaleString()}
           </div>
-          <div
-            className={`flex items-center gap-2 mt-2 text-lg font-semibold ${changeInfo.color}`}
-          >
+          <div className={`flex items-center gap-2 mt-2 text-lg font-semibold ${changeInfo.color}`}>
             <span className="font-normal text-white">전일대비</span>
             {changeInfo.icon}
             <span>{stockData.changeAmount.toLocaleString()}</span>
@@ -69,10 +63,7 @@ const MarketDetailPage = () => {
         {/* 우측: 상세 거래 정보 */}
         <section className="md:col-span-2 bg-white/5 p-4 rounded-lg">
           <dl className="gap-x-5 gap-y-5 grid grid-cols-2 md:grid-cols-3">
-            <DetailItem
-              label="전일"
-              value={stockData.prevClosePrice.toLocaleString()}
-            />
+            <DetailItem label="전일" value={stockData.prevClosePrice.toLocaleString()} />
             <DetailItem
               label="고가"
               value={stockData.highPrice.toLocaleString()}
@@ -83,10 +74,7 @@ const MarketDetailPage = () => {
               value={stockData.currentPrice.toLocaleString()}
               className={changeInfo.color}
             />
-            <DetailItem
-              label="시가"
-              value={stockData.openPrice.toLocaleString()}
-            />
+            <DetailItem label="시가" value={stockData.openPrice.toLocaleString()} />
             <DetailItem
               label="저가"
               value={stockData.lowPrice.toLocaleString()}

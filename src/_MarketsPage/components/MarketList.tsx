@@ -14,32 +14,18 @@ const getChangeInfo = (changeRate: number) => {
   return { className: "text-white", icon: "" };
 };
 
-const MarketList: React.FC<MarketListProps> = ({
-  items,
-  currentPage,
-  itemsPerPage,
-}) => {
+const MarketList: React.FC<MarketListProps> = ({ items, currentPage, itemsPerPage }) => {
   const navigate = useNavigate();
   const startIndex = (currentPage - 1) * itemsPerPage;
   return (
     <table className="w-full text-white border-collapse">
       <thead>
         <tr className="border-white/10 border-b">
-          <th className="p-4 font-normal text-gray-400 text-sm text-left">
-            종목
-          </th>
-          <th className="p-4 font-normal text-gray-400 text-sm text-left">
-            자산명
-          </th>
-          <th className="p-4 font-normal text-gray-400 text-sm text-left">
-            현재가
-          </th>
-          <th className="p-4 font-normal text-gray-400 text-sm text-left">
-            등락률
-          </th>
-          <th className="p-4 font-normal text-gray-400 text-sm text-left">
-            거래대금
-          </th>
+          <th className="p-4 font-normal text-gray-400 text-sm text-left">종목</th>
+          <th className="p-4 font-normal text-gray-400 text-sm text-left">자산명</th>
+          <th className="p-4 font-normal text-gray-400 text-sm text-left">현재가</th>
+          <th className="p-4 font-normal text-gray-400 text-sm text-left">등락률</th>
+          <th className="p-4 font-normal text-gray-400 text-sm text-left">거래대금</th>
         </tr>
       </thead>
       <tbody>
@@ -52,9 +38,7 @@ const MarketList: React.FC<MarketListProps> = ({
               onClick={() => navigate(`/markets/${item.code}`)}
             >
               {/* 순번 */}
-              <td className="p-4 text-gray-400 align-middle">
-                {startIndex + index + 1}
-              </td>
+              <td className="p-4 text-gray-400 align-middle">{startIndex + index + 1}</td>
 
               {/* 종목명과 코드 */}
               <td className="p-4 align-middle">

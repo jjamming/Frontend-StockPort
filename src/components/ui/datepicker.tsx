@@ -6,11 +6,7 @@ import { Calendar as CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import type { ControllerRenderProps } from "react-hook-form";
 
 interface DatePickerProps {
@@ -28,11 +24,7 @@ export function DatePicker({ field }: DatePickerProps) {
           className="justify-start w-50 font-suit text-navy data-[empty=true]:text-muted-foreground text-left"
         >
           <CalendarIcon className="mr-2 w-4 h-4" />
-          {field.value ? (
-            format(field.value, "yyyy-MM-dd")
-          ) : (
-            <span>날짜 선택</span>
-          )}
+          {field.value ? format(field.value, "yyyy-MM-dd") : <span>날짜 선택</span>}
         </Button>
       </PopoverTrigger>
       <PopoverContent className="p-0 w-auto">

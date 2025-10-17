@@ -20,12 +20,7 @@ const mockSearchAsset = async (query: string): Promise<SearchResult[]> => {
   ];
 };
 
-const AssetItem = ({
-  AssetIndex,
-  asset,
-  onUpdate,
-  onDelete,
-}: AssetItemProps) => {
+const AssetItem = ({ AssetIndex, asset, onUpdate, onDelete }: AssetItemProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [query, setQuery] = useState(asset.name);
@@ -64,10 +59,7 @@ const AssetItem = ({
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (
-        wrapperRef.current &&
-        !wrapperRef.current.contains(e.target as Node)
-      ) {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
         setIsDropdownOpen(false);
       }
     };

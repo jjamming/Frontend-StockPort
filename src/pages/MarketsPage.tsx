@@ -38,7 +38,7 @@ const MarketsPage = () => {
   const totalPages = Math.ceil(sortedData.length / ITEMS_PER_PAGE);
   const currentItems = sortedData.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
   );
 
   const handlePageChange = (page: number) => {
@@ -69,11 +69,7 @@ const MarketsPage = () => {
           ))}
         </div>
 
-        <MarketList
-          items={currentItems}
-          currentPage={currentPage}
-          itemsPerPage={ITEMS_PER_PAGE}
-        />
+        <MarketList items={currentItems} currentPage={currentPage} itemsPerPage={ITEMS_PER_PAGE} />
 
         <Pagination
           currentPage={currentPage}

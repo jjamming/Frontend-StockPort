@@ -18,9 +18,7 @@ const HotPosts = ({ posts }: HotPostsProps) => {
             key={post.id}
             className="flex items-center gap-4 py-4 border-white/10 border-b last:border-none"
           >
-            <span className="w-5 font-bold text-blue-400 text-lg">
-              {index + 1}
-            </span>
+            <span className="w-5 font-bold text-blue-400 text-lg">{index + 1}</span>
             <div className="flex-1 overflow-hidden">
               <p className="font-semibold hover:text-blue-400 truncate transition-colors cursor-pointer">
                 {post.title}

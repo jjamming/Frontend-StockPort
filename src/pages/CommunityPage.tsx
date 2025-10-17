@@ -29,7 +29,7 @@ const CommunityPage = () => {
   const totalPages = Math.ceil(filteredData.length / ITEMS_PER_PAGE);
   const currentItems = filteredData.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
   );
 
   const handlePageChange = (page: number) => {
