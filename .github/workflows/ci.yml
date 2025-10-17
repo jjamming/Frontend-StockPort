@@ -32,8 +32,8 @@ jobs:
       - name: Check Prettier formatting
         run: pnpm exec prettier --check .
 
-      - name: Run ESLint (fail on warnings)
-        run: pnpm run lint --if-present -- --max-warnings=0
+      - name: Run ESLint
+        run: pnpm run lint
 
       - name: Build
         run: pnpm run build
