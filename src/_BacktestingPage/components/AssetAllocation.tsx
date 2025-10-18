@@ -7,19 +7,13 @@ type AssetAllocationProps = {
   setAssets: React.Dispatch<React.SetStateAction<Asset[]>>;
   totalWeight: number;
 };
-const AssetAllocation = ({
-  assets,
-  setAssets,
-  totalWeight,
-}: AssetAllocationProps) => {
+const AssetAllocation = ({ assets, setAssets, totalWeight }: AssetAllocationProps) => {
   const handleAddAsset = () => {
     setAssets([...assets, { id: uuidv4(), name: "", ticker: "", weight: 0 }]);
   };
   const handleUpdateAsset = (updatedAsset: Asset) => {
     setAssets((prevAssets) =>
-      prevAssets.map((asset) =>
-        asset.id === updatedAsset.id ? updatedAsset : asset,
-      ),
+      prevAssets.map((asset) => (asset.id === updatedAsset.id ? updatedAsset : asset))
     );
   };
   const handleDeleteAsset = (id: string) => {

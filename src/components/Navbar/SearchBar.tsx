@@ -4,10 +4,7 @@ import { Search } from "lucide-react";
 const SearchBar = () => {
   return (
     <div className="relative flex w-full max-w-sm mr-4 items-center justify-center">
-      <Search
-        className="absolute left-4 top-1/2 mr-1.5 -translate-y-1/2 text-gray-400"
-        size={20}
-      />
+      <Search className="absolute left-4 top-1/2 mr-1.5 -translate-y-1/2 text-gray-400" size={20} />
       <Input
         type="text"
         placeholder="종목명/종목코드 검색"

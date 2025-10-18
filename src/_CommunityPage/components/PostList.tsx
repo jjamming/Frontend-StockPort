@@ -17,42 +17,21 @@ const PostList = ({ posts }: PostListProps) => {
     <table className="w-full text-white border-collapse">
       <thead>
         <tr className="border-white/10 border-b">
-          <th className="p-4 w-3/5 font-normal text-gray-400 text-sm text-left">
-            제목
-          </th>
-          <th className="p-4 font-normal text-gray-400 text-sm text-center">
-            작성자
-          </th>
-          <th className="p-4 font-normal text-gray-400 text-sm text-center">
-            날짜
-          </th>
-          <th className="p-4 font-normal text-gray-400 text-sm text-center">
-            조회수
-          </th>
-          <th className="p-4 font-normal text-gray-400 text-sm text-center">
-            추천
-          </th>
+          <th className="p-4 w-3/5 font-normal text-gray-400 text-sm text-left">제목</th>
+          <th className="p-4 font-normal text-gray-400 text-sm text-center">작성자</th>
+          <th className="p-4 font-normal text-gray-400 text-sm text-center">날짜</th>
+          <th className="p-4 font-normal text-gray-400 text-sm text-center">조회수</th>
+          <th className="p-4 font-normal text-gray-400 text-sm text-center">추천</th>
         </tr>
       </thead>
       <tbody>
         {posts.map((post) => (
-          <tr
-            key={post.id}
-            className="hover:bg-white/5 border-white/10 border-b transition-colors"
-          >
-            <td className="p-4 font-bold hover:text-blue-400 cursor-pointer">
-              {post.title}
-            </td>
+          <tr key={post.id} className="hover:bg-white/5 border-white/10 border-b transition-colors">
+            <td className="p-4 font-bold hover:text-blue-400 cursor-pointer">{post.title}</td>
             <td className="p-4 text-gray-300 text-center">{post.author}</td>
-            <td className="p-4 text-gray-400 text-center">
-              {formatDate(post.createdAt)}
-            </td>
-            <td className="p-4 text-gray-400 text-center">
-              {post.views.toLocaleString()}
-            </td>
-            <td className="p-4 text-gray-400 text-center">
-              {post.likes.toLocaleString()}
-            </td>
+            <td className="p-4 text-gray-400 text-center">{formatDate(post.createdAt)}</td>
+            <td className="p-4 text-gray-400 text-center">{post.views.toLocaleString()}</td>
+            <td className="p-4 text-gray-400 text-center">{post.likes.toLocaleString()}</td>
           </tr>
         ))}
       </tbody>

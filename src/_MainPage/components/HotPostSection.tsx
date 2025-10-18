@@ -40,14 +40,9 @@ export default function HotPostsSection({ posts }: HotPostsSectionProps) {
     <div className="mx-auto px-6 lg:px-8 py-16 max-w-7xl">
       <Card className="bg-[#0A194E] border-gray-700 text-white">
         <CardHeader className="flex flex-row justify-between items-center">
-          <CardTitle className="font-bold text-2xl">
-            실시간 인기 게시물
-          </CardTitle>
+          <CardTitle className="font-bold text-2xl">실시간 인기 게시물</CardTitle>
           <Link to="/community">
-            <Button
-              variant="ghost"
-              className="hover:bg-white/10 text-gray-300 hover:text-white"
-            >
+            <Button variant="ghost" className="hover:bg-white/10 text-gray-300 hover:text-white">
               더보기 <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </Link>
@@ -65,9 +60,7 @@ export default function HotPostsSection({ posts }: HotPostsSectionProps) {
                     {index + 1}
                   </span>
                   <div>
-                    <p className="font-semibold text-white text-lg">
-                      {post.title}
-                    </p>
+                    <p className="font-semibold text-white text-lg">{post.title}</p>
                     {/* ago: timeAgo 함수로 동적 생성 */}
                     <p className="mt-1 text-gray-400 text-sm">
                       {post.author} ・ {timeAgo(post.createdAt)}

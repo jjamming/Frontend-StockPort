@@ -38,17 +38,13 @@ const MarketIndexCard = ({ marketType, marketIndex }: MarketIndexCardProps) => {
     <Card className="bg-[#0A194E] border-gray-700 text-white">
       {/* 마켓 종류(KOSPI/KOSDAQ) */}
       <CardHeader>
-        <CardTitle className="font-medium text-gray-300 text-lg">
-          {marketType}
-        </CardTitle>
+        <CardTitle className="font-medium text-gray-300 text-lg">{marketType}</CardTitle>
       </CardHeader>
 
       <CardContent>
         <p className="font-bold text-4xl">{marketIndex.value}</p>
         {/* 상승여부에 따라 다른 색상으로 변동성 렌더링 */}
-        <p
-          className={`mt-2 text-lg font-semibold ${getChangeColor(marketIndex.direction)}`}
-        >
+        <p className={`mt-2 text-lg font-semibold ${getChangeColor(marketIndex.direction)}`}>
           {arrow} {marketIndex.change.toFixed(2)} ({sign}
           {marketIndex.changePercent.toFixed(2)}%)
         </p>
@@ -60,13 +56,7 @@ const MarketIndexCard = ({ marketType, marketIndex }: MarketIndexCardProps) => {
               <YAxis domain={["dataMin - 10", "dataMax + 10"]} hide />
               <defs>
                 {/* 차트 아래 그래디언트 색상 정의 */}
-                <linearGradient
-                  id={`color-${marketType}`}
-                  x1="0"
-                  y1="0"
-                  x2="0"
-                  y2="1"
-                >
+                <linearGradient id={`color-${marketType}`} x1="0" y1="0" x2="0" y2="1">
                   <stop
                     offset="5%"
                     stopColor={getChartColor(marketIndex.direction)}

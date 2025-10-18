@@ -1,7 +1,4 @@
-import type {
-  MarketType,
-  MarketIndex,
-} from "@/_MainPage/types/MarketIndexType";
+import type { MarketType, MarketIndex } from "@/_MainPage/types/MarketIndexType";
 import Chart from "./Chart";
 import Triangle from "@/components/icons/Triangle";
 import { marketData } from "@/_MainPage/mocks/marketData";

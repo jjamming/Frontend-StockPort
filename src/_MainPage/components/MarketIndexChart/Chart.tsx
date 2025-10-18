@@ -26,13 +26,7 @@ const Chart = ({ chartData }: ChartProps) => {
             tick={{ fill: "#AAAAAA", fontSize: 12, fontFamily: "Suit" }}
           />
           <Tooltip />
-          <Line
-            type="monotone"
-            dataKey="value"
-            stroke="#fff"
-            strokeWidth={1.5}
-            dot={{ r: 2 }}
-          />
+          <Line type="monotone" dataKey="value" stroke="#fff" strokeWidth={1.5} dot={{ r: 2 }} />
         </LineChart>
       </ResponsiveContainer>
     </div>

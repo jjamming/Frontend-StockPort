@@ -2,10 +2,7 @@ type StartBacktestButtonProps = {
   handleSubmit: () => void;
   disabled: boolean;
 };
-const StartBacktestButton = ({
-  handleSubmit,
-  disabled,
-}: StartBacktestButtonProps) => {
+const StartBacktestButton = ({ handleSubmit, disabled }: StartBacktestButtonProps) => {
   return (
     <div className="flex justify-center items-center hover:opacity-70 my-3">
       <button
