@@ -44,7 +44,7 @@ const BacktestingPage = () => {
 
     const formData = form.getValues();
     const requestData = mapToBacktestRequest(formData, assets);
-    console.log("request=", requestData);
+    // TODO: 백테스트 API 호출 로직 추가
     const message = `
 📊 백테스트 요청 데이터
 

@@ -7,7 +7,7 @@ export const searchAsset = async (query: string): Promise<SearchResult[]> => {
   const res = await fetch(`${BACKEND_BASE_URL}${API_ENDPOINTS.searchAsset(query)}`);
 
   if (!res.ok) {
-    console.error("Failed to fetch serach result");
+    // TODO: 에러 처리 로직 추가
     return [];
   }
   const data = await res.json();

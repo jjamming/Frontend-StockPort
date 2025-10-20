@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import type { SearchResult, Asset } from "../types/backtestFormType";
 import { debounce } from "lodash";
-import { searchAsset } from "../apis/searchAsset";
 type AssetItemProps = {
   AssetIndex: number;
   asset: Asset;

@@ -4,13 +4,11 @@ import GoogleIcon from "../components/icons/GoogleIcon";
 
 const LoginPage = () => {
   const handleGoogleLogin = () => {
-    // Todo: 여기에 구글 로그인 로직을 구현
-    console.log("Google 로그인 시도");
+    // TODO: 구글 로그인 로직 구현
   };
 
   const handleKakaoLogin = () => {
-    // Todo: 여기에 카카오 로그인 로직을 구현
-    console.log("카카오 로그인 시도");
+    // TODO: 카카오 로그인 로직 구현
   };
 
   return (
