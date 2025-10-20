@@ -6,13 +6,19 @@ import { Calendar as CalendarIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import type { ControllerRenderProps } from "react-hook-form";
+import type { ControllerRenderProps, FieldValues, FieldPath } from "react-hook-form";
 
-interface DatePickerProps {
-  field: ControllerRenderProps<any, any>; // react-hook-form의 field 객체
+interface DatePickerProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+> {
+  field: ControllerRenderProps<TFieldValues, TName>;
 }
 
-export function DatePicker({ field }: DatePickerProps) {
+export function DatePicker<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+>({ field }: DatePickerProps<TFieldValues, TName>) {
   const [open, setOpen] = React.useState(false);
   return (
     <Popover open={open} onOpenChange={setOpen}>
