@@ -4,13 +4,11 @@ import GoogleIcon from "../components/icons/GoogleIcon";
 
 const SignUpPage = () => {
   const handleGoogleSignUp = () => {
-    // Todo: 여기에 구글을 통한 '회원가입' 로직을 구현
-    console.log("Google로 회원가입 시도");
+    // TODO: 구글 회원가입 로직 구현
   };
 
   const handleKakaoSignUp = () => {
-    // Todo: 여기에 카카오를 통한 '회원가입' 로직을 구현
-    console.log("카카오로 회원가입 시도");
+    // TODO: 카카오 회원가입 로직 구현
   };
 
   return (
