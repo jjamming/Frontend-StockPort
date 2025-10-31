@@ -1,4 +1,4 @@
-import type { StockData } from "../types/StockDataType";
+import type { StockData } from "../types/stockDataType";
 
 export const sampleData: StockData = {
   name: "삼성전자",

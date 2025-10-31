@@ -3,21 +3,22 @@
 import * as React from "react";
 import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import type { ControllerRenderProps } from "react-hook-form";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import type { ControllerRenderProps, FieldValues, FieldPath } from "react-hook-form";
 
-interface DatePickerProps {
-  field: ControllerRenderProps<any, any>; // react-hook-form의 field 객체
+interface DatePickerProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+> {
+  field: ControllerRenderProps<TFieldValues, TName>;
 }
 
-export function DatePicker({ field }: DatePickerProps) {
+export function DatePicker<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+>({ field }: DatePickerProps<TFieldValues, TName>) {
   const [open, setOpen] = React.useState(false);
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -28,11 +29,7 @@ export function DatePicker({ field }: DatePickerProps) {
           className="justify-start w-50 font-suit text-navy data-[empty=true]:text-muted-foreground text-left"
         >
           <CalendarIcon className="mr-2 w-4 h-4" />
-          {field.value ? (
-            format(field.value, "yyyy-MM-dd")
-          ) : (
-            <span>날짜 선택</span>
-          )}
+          {field.value ? format(field.value, "yyyy-MM-dd") : <span>날짜 선택</span>}
         </Button>
       </PopoverTrigger>
       <PopoverContent className="p-0 w-auto">

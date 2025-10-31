@@ -105,10 +105,7 @@ const BacktestForm = ({ form }: BacktestFormProps) => {
                           id="quarterly"
                           className="data-[state=checked]:bg-white cursor-pointer"
                         />
-                        <FormLabel
-                          htmlFor="quarterly"
-                          className="cursor-pointer"
-                        >
+                        <FormLabel htmlFor="quarterly" className="cursor-pointer">
                           분기별
                         </FormLabel>
                       </FormItem>

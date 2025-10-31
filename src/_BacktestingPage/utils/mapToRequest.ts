@@ -2,10 +2,7 @@
 import type { BacktestFormSchema } from "./backtestFormSchema";
 import type { Asset, BacktestRequest } from "../types/backtestFormType";
 
-export function mapToBacktestRequest(
-  values: BacktestFormSchema,
-  assets: Asset[],
-): BacktestRequest {
+export function mapToBacktestRequest(values: BacktestFormSchema, assets: Asset[]): BacktestRequest {
   const formatDate = (date: Date) => date.toLocaleDateString("sv-SE");
 
   return {
@@ -13,7 +10,7 @@ export function mapToBacktestRequest(
     end_date: formatDate(values.endDate),
     initial_amount: values.initialAmount,
     rebalance_frequency: values.rebalanceFrequency,
-    assets: assets.map(({ id, name, ticker, weight }) => ({
+    assets: assets.map(({ name, ticker, weight }) => ({
       name,
       ticker,
       weight,

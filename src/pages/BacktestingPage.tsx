@@ -14,9 +14,7 @@ import { mapToBacktestRequest } from "@/_BacktestingPage/utils/mapToRequest";
 import { v4 as uuidv4 } from "uuid";
 
 const BacktestingPage = () => {
-  const [assets, setAssets] = useState([
-    { id: uuidv4(), name: "", ticker: "", weight: 0 },
-  ]);
+  const [assets, setAssets] = useState([{ id: uuidv4(), name: "", ticker: "", weight: 0 }]);
   const totalWeight = useMemo(() => {
     return assets.reduce((sum, asset) => sum + asset.weight, 0);
   }, [assets]);
@@ -31,9 +29,7 @@ const BacktestingPage = () => {
   });
   const handleSubmit = () => {
     const hasInvalidAsset = assets.some((asset) => {
-      return (
-        !asset.name || !asset.ticker || asset.weight < 1 || asset.weight > 100
-      );
+      return !asset.name || !asset.ticker || asset.weight < 1 || asset.weight > 100;
     });
 
     if (hasInvalidAsset) {
@@ -48,7 +44,7 @@ const BacktestingPage = () => {
 
     const formData = form.getValues();
     const requestData = mapToBacktestRequest(formData, assets);
-    console.log("request=", requestData);
+    // TODO: 백테스트 API 호출 로직 추가
     const message = `
 📊 백테스트 요청 데이터
 
@@ -60,8 +56,7 @@ const BacktestingPage = () => {
 📈 자산 목록:
 ${requestData.assets
   .map(
-    (asset, idx) =>
-      `  ${idx + 1}. 종목명: ${asset.name} (${asset.ticker}), 비중: ${asset.weight}%`,
+    (asset, idx) => `  ${idx + 1}. 종목명: ${asset.name} (${asset.ticker}), 비중: ${asset.weight}%`
   )
   .join("\n")}
 `;
