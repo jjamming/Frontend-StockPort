@@ -27,6 +27,7 @@ const AssetItem = ({ AssetIndex, asset, onUpdate, onDelete }: AssetItemProps) =>
   const skipSearchRef = useRef(false);
   const hasClearedRef = useRef(false);
 
+  // API 연결 시 useEffect 의존성 최적화 필요
   const handleSearch = debounce(async (keyword: string) => {
     const results = await mockSearchAsset(keyword);
     setSearchResults(results);
@@ -44,7 +45,7 @@ const AssetItem = ({ AssetIndex, asset, onUpdate, onDelete }: AssetItemProps) =>
       setSearchResults([]);
       setIsDropdownOpen(false);
     }
-  }, [query]);
+  }, [query, handleSearch]);
 
   const handleSelect = (selected: SearchResult) => {
     const displayValue = `${selected.name} (${selected.ticker})`;
