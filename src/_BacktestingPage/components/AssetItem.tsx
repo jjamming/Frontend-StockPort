@@ -45,7 +45,7 @@ const AssetItem = ({ AssetIndex, asset, onUpdate, onDelete }: AssetItemProps) =>
       setSearchResults([]);
       setIsDropdownOpen(false);
     }
-  }, [query, handleSearch]);
+  }, [query]);
 
   const handleSelect = (selected: SearchResult) => {
     const displayValue = `${selected.name} (${selected.ticker})`;
