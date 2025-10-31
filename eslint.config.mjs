@@ -28,6 +28,7 @@ export default [
       "react/jsx-key": "error",
 
       ...reactHooks.configs.recommended.rules,
+      "react-hooks/exhaustive-deps": "off",
 
       "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
 
